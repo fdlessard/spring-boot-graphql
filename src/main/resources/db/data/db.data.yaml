@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: fdlessard@gmail.com
+      changes:
+        - loadData:
+            tableName: customer
+            file: "db/data/customer.csv"
+            encoding: UTF-8
+            separator: ','
+            quotchar: "'"
+            columns:
+              - column:
+                  name: last_name
+                  type: string
+              - column:
+                  name: first_name
+                  type: string
+              - column:
+                  name: company
+                  type: string
+
+        - loadData:
+            tableName: address
+            file: "db/data/address.csv"
+            encoding: UTF-8
+            separator: ','
+            quotchar: "'"
+            columns:
+              - column:
+                  name: number
+                  type: string
+              - column:
+                  name: street
+                  type: string
+              - column:
+                  name: city
+                  type: string
+              - column:
+                  name: province
+                  type: string
+              - column:
+                  name: postal_code
+                  type: string
+              - column:
+                  name: country
+                  type: string
+              - column:
+                  name: customer_id
+                  type: numeric
+
+        - loadData:
+            tableName: order
+            file: "db/data/order.csv"
+            encoding: UTF-8
+            separator: ','
+            quotchar: "'"
+            columns:
+              - column:
+                  name: customer_id
+                  type: numeric
+              - column:
+                  name: description
+                  type: string
+              - column:
+                  name: date
+                  type: string
+
+        - loadData:
+            tableName: order_item
+            file: "db/data/order_item.csv"
+            encoding: UTF-8
+            separator: ','
+            quotchar: "'"
+            columns:
+              - column:
+                  name: order_id
+                  type: string
+              - column:
+                  name: product_name
+                  type: string
+              - column:
+                  name: quantity
+                  type: numeric
+
