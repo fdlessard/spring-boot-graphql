@@ -18,10 +18,10 @@ management:
     liquibase:
       enabled: true
     git:
-      enbled: true
+      enabled: true
 
 logging:
-  level.root: DEBUG
+  level.root: INFO
   #  level.org.hibernate.SQL: DEBUG
   level.liquibase: INFO
   level.io.fdlessard.codebites.graphql: DEBUG
@@ -67,3 +67,7 @@ spring:
       jdbc:
         time_zone: UTC
     show-sql: true
+  graphql:
+    graphiql:
+      enabled: true
+#      path: /graphiql

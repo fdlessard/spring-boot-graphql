@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import jakarta.persistence.*;
@@ -48,6 +49,7 @@ public class Address extends BaseEntity implements Serializable {
     @Column(name = "country")
     private String country;
 
+    @ToString.Exclude
     @JsonIgnoreProperties("addresses")
     @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;

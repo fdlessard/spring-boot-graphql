@@ -1,5 +1,6 @@
 package io.fdlessard.codebites.graphql.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -32,6 +33,7 @@ public class Order extends BaseEntity implements Serializable {
     private List<OrderItem> items;
 
     @Valid
+    @JsonIgnoreProperties("order")
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Customer customer;
 

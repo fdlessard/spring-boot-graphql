@@ -12,6 +12,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Table(name = "customer")
@@ -39,6 +40,7 @@ public class Customer extends BaseEntity implements Serializable {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses;
 
+    @ToString.Exclude
     @Valid
     @OneToOne(mappedBy = "customer")
     private Order order;

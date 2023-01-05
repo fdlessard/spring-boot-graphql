@@ -615,6 +615,92 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "GraphQL Api",
+			"item": [
+				{
+					"name": "Get Customer 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n  findCustomerById(id: 1) {\n    id\n    firstName\n    lastName\n    company\n    addresses {\n      number\n      street\n      city\n      postalCode\n      province\n      country\n    }\n\n  }\n}\n",
+								"variables": ""
+							},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n  findOrderById(id: 1) {\n    id\n    description\n    date\n    customer {\n        id\n        firstName\n        lastName\n        company\n        addresses {\n            number\n            street\n            city\n            postalCode\n            province\n            country\n        }\n    }\n  }\n}\n",
+								"variables": ""
+							},
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

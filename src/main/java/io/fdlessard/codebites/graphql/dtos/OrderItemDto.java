@@ -1,5 +1,7 @@
-package io.fdlessard.codebites.graphql.entities;
+package io.fdlessard.codebites.graphql.dtos;
 
+import io.fdlessard.codebites.graphql.entities.BaseEntity;
+import io.fdlessard.codebites.graphql.entities.Order;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
@@ -7,28 +9,22 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
-@Table(name = "order_item")
-@Entity
-@SuperBuilder
+
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderItem extends BaseEntity implements Serializable {
+public class OrderItemDto implements Serializable {
 
-    @NotBlank(message = "product name cannot be blank")
-    @Size(min = 2, message = "product name must have more than 2 characters")
+    private Long id;
     private String productName;
-
     private int quantity;
-
-    @ToString.Exclude
-    @ManyToOne(fetch = FetchType.EAGER)
     private Order order;
 }

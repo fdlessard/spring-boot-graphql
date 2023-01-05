@@ -1,0 +1,36 @@
+type Query {
+  findCustomerById(id: ID): Customer
+  findOrderById(id: ID): Order
+}
+
+type Address {
+  id: ID
+  number: String
+  street: String
+  city: String
+  postalCode: String
+  province: String
+  country: String
+}
+
+type Customer {
+  id: ID
+  firstName: String
+  lastName: String
+  company: String
+  addresses: [Address]
+}
+
+type Order {
+  id: ID
+  description: String
+  date: String
+  customer: Customer
+  orderItems: [OrderItem]
+}
+
+type OrderItem {
+  id: ID
+  productName: String
+  quantity: Int
+}
